@@ -89,3 +89,81 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: SSQL_answer
+  examples: |
+    - Q[1](question_num) [Kunne slet ikke](Q_answer)
+    - Q[1](question_num) [Meget besvær](Q_answer)
+    - Q[1](question_num) [En del besvær](Q_answer)
+    - Q[1](question_num) [Lidt besvær](Q_answer)
+    - Q[1](question_num) [Intet besvær](Q_answer)
+    - Q[1](question_num) [Helt enig](Q_answer)
+    - Q[1](question_num) [Delvist enig](Q_answer)
+    - Q[1](question_num) [Hverken enig eller uenig](Q_answer)
+    - Q[1](question_num) [Delvist uenig](Q_answer)
+    - Q[1](question_num) [Helt uenig](Q_answer)
+
+
+- lookup: question_num
+  examples: |
+      - 1
+      - 11
+      - 23
+      - 43
+      - 2
+      - 16
+
+- lookup: Q_answer
+  examples: |
+    - Kunne slet ikke
+    - Meget besvær
+    - En del besvær
+    - Lidt besvær
+    - Intet besvær
+    - Helt enig
+    - Delvist enig
+    - Hverken enig eller uenig
+    - Delvist uenig
+    - Helt uenig
+
+
+- intent: change_answer_pls
+  examples: |
+    - can I change my answer?
+    - I gave the wrong answer 
+    - that's incorrect
+    - change answer
+
+- intent: give_question_number
+  examples: |
+    - number [4](question_number)
+    - q [2](question_number)
+    - [5](question_number)
+    - [7](question_number)
+    - question [21](question_number)
+    - answer [43](question_number)
+
+- lookup: question_number
+  examples: |
+    - 23
+    - 34
+    - 5
+    - 1
+    - 11
+    - 9
+
+- intent: give_new_answer
+  examples: |
+    - new answer is [1](new_answer)
+    - new answer is [2](new_answer)
+    - new answer is [3](new_answer)
+    - new answer is [4](new_answer)
+    - new answer is [5](new_answer)
+
+- lookup: new_answer
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5

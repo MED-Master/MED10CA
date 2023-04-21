@@ -1,5 +1,11 @@
 version: "3.0"
 
+entitites:
+  - Q_answer
+  - question_number
+  - question_num
+  - new_answer
+
 intents:
   - greet
   - goodbye
@@ -8,6 +14,10 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - SSQL_answer
+  - give_question_number
+  - change_answer_pls
+  - give_new_answer
 
 responses:
   utter_greet:
@@ -28,6 +38,18 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_answer_received:
+  - text: "I got your answer!"
+
+  utter_which_question:
+  - text: "Which question number would you like to change the answer to?"
+
+actions:
+  - ValidationOfAnswer
+  - AskForNewAnswer
+  - ChangeAnswer
+
 
 session_config:
   session_expiration_time: 60

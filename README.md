@@ -14,3 +14,13 @@
 - `rasa shell` - command line interaction.
 
 
+# For Veronika
+## In pycharm
+- `conda activate rasatest` - mac shit
+- `rasa train` - optional if next command fails (deserialization error)
+- `rasa run --model models --enable-api --cors "*"` - start RASA server
+- run Data Collection - start the API proxy server
+
+## In VSCode
+- npm start
+- r - in terminal to refresh app

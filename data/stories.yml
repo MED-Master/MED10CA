@@ -2,6 +2,22 @@ version: "3.0"
 
 stories:
 
+- story: got your answer
+  steps:
+    - intent: SSQL_answer
+    - action: utter_answer_received
+    - action: ValidationOfAnswer
+
+- story: change the answer
+  steps:
+    - intent: change_answer_pls
+    - action: utter_which_question
+    - intent: give_question_number
+    - action: AskForNewAnswer
+    - intent: give_new_answer
+    - action: ChangeAnswer
+
+
 - story: happy path
   steps:
   - intent: greet
