@@ -12,35 +12,38 @@ stories:
   steps:
     - intent: change_answer_pls
     - action: utter_which_question
-    - intent: give_question_number
+    - intent: give_number
     - action: AskForNewAnswer
-    - intent: give_new_answer
+    - intent: give_number
     - action: ChangeAnswer
-
-
-- story: happy path
+- story: interactive_story_1
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - intent: SSQL_answer
+    entities:
+    - Q_answer: Meget besvær
+  - action: utter_answer_received
+  - action: ValidationOfAnswer
+  - intent: change_answer_pls
+  - action: utter_which_question
+  - intent: change_answer_pls
 
-- story: sad path 1
+- story: interactive_story_2
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - intent: SSQL_answer
+    entities:
+    - Q_answer: Meget svært
+  - action: utter_answer_received
+  - action: ValidationOfAnswer
 
-- story: sad path 2
+- story: interactive_story_3
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - intent: change_answer_pls
+  - action: utter_which_question
+  - intent: give_number
+    entities:
+    - get_number: '1'
+  - action: AskForNewAnswer
+  - intent: give_number
+    entities:
+    - get_number: '3'
+  - action: ChangeAnswer

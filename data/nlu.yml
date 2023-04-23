@@ -1,5 +1,4 @@
 version: "3.0"
-
 nlu:
 - intent: greet
   examples: |
@@ -16,7 +15,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
 - intent: goodbye
   examples: |
     - cu
@@ -29,7 +27,6 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
 - intent: affirm
   examples: |
     - yes
@@ -38,7 +35,6 @@ nlu:
     - of course
     - that sounds good
     - correct
-
 - intent: deny
   examples: |
     - no
@@ -48,7 +44,6 @@ nlu:
     - don't like that
     - no way
     - not really
-
 - intent: mood_great
   examples: |
     - perfect
@@ -65,7 +60,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -82,14 +76,12 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-
 - intent: SSQL_answer
   examples: |
     - Q[1](question_num) [Kunne slet ikke](Q_answer)
@@ -102,17 +94,33 @@ nlu:
     - Q[1](question_num) [Hverken enig eller uenig](Q_answer)
     - Q[1](question_num) [Delvist uenig](Q_answer)
     - Q[1](question_num) [Helt uenig](Q_answer)
-
-
+    - Q1 [Meget besvær](Q_answer)
+    - Q1 [Meget svært](Q_answer)
+- intent: change_answer_pls
+  examples: |
+    - can I change my answer?
+    - I gave the wrong answer
+    - that's incorrect
+    - change answer
+    - chance  answer
+- intent: give_number
+  examples: |
+    - number [4](get_number)
+    - q [2](get_number)
+    - [5](get_number)
+    - [7](get_number)
+    - question [21](get_number)
+    - [1](get_number)
+    - [3](get_number)
 - lookup: question_num
   examples: |
-      - 1
-      - 11
-      - 23
-      - 43
-      - 2
-      - 16
-
+    - 1
+    - 11
+    - 23
+    - 43
+    - 2
+    - 16
+    - 49
 - lookup: Q_answer
   examples: |
     - Kunne slet ikke
@@ -125,25 +133,7 @@ nlu:
     - Hverken enig eller uenig
     - Delvist uenig
     - Helt uenig
-
-
-- intent: change_answer_pls
-  examples: |
-    - can I change my answer?
-    - I gave the wrong answer 
-    - that's incorrect
-    - change answer
-
-- intent: give_question_number
-  examples: |
-    - number [4](question_number)
-    - q [2](question_number)
-    - [5](question_number)
-    - [7](question_number)
-    - question [21](question_number)
-    - answer [43](question_number)
-
-- lookup: question_number
+- lookup: get_number
   examples: |
     - 23
     - 34
@@ -151,19 +141,4 @@ nlu:
     - 1
     - 11
     - 9
-
-- intent: give_new_answer
-  examples: |
-    - new answer is [1](new_answer)
-    - new answer is [2](new_answer)
-    - new answer is [3](new_answer)
-    - new answer is [4](new_answer)
-    - new answer is [5](new_answer)
-
-- lookup: new_answer
-  examples: |
-    - 1
     - 2
-    - 3
-    - 4
-    - 5

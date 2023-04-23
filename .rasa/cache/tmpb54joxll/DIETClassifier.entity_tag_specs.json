@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-Q_answer",
+      "2": "I-Q_answer",
+      "3": "L-Q_answer",
+      "4": "U-Q_answer",
+      "5": "B-new_answer",
+      "6": "I-new_answer",
+      "7": "L-new_answer",
+      "8": "U-new_answer",
+      "9": "B-question_number",
+      "10": "I-question_number",
+      "11": "L-question_number",
+      "12": "U-question_number",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-Q_answer": 1,
+      "I-Q_answer": 2,
+      "L-Q_answer": 3,
+      "U-Q_answer": 4,
+      "B-new_answer": 5,
+      "I-new_answer": 6,
+      "L-new_answer": 7,
+      "U-new_answer": 8,
+      "B-question_number": 9,
+      "I-question_number": 10,
+      "L-question_number": 11,
+      "U-question_number": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]

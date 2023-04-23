@@ -1,56 +1,43 @@
-version: "3.0"
-
-entitites:
-  - Q_answer
-  - question_number
-  - question_num
-  - new_answer
-
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - SSQL_answer
-  - give_question_number
-  - change_answer_pls
-  - give_new_answer
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-  utter_answer_received:
-  - text: "I got your answer!"
-
-  utter_which_question:
-  - text: "Which question number would you like to change the answer to?"
-
-actions:
-  - ValidationOfAnswer
-  - AskForNewAnswer
-  - ChangeAnswer
-
-
+version: '3.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- give_number
+- SSQL_answer
+- change_answer_pls
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+entities:
+- Q_answer
+- get_number
+- question_num
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_answer_received:
+  - text: I got your answer!
+  utter_which_question:
+  - text: Which question number would you like to change the answer to?
+actions:
+- AskForNewAnswer
+- ChangeAnswer
+- ValidationOfAnswer
+- utter_answer_received
+- utter_which_question
