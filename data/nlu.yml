@@ -31,10 +31,13 @@ nlu:
   examples: |
     - yes
     - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - ja
+    - ja tak
+    - jep
+    - yeah
+    - yep
+    - j
+    - korrekt
 - intent: deny
   examples: |
     - no
@@ -84,16 +87,16 @@ nlu:
     - am I talking to a human?
 - intent: SSQL_answer
   examples: |
-    - Sporgsmål [1](question_num) - [Kunne slet ikke](Q_answer)
-    - Sporgsmål [2](question_num) - [Meget besvær](Q_answer)
-    - Sporgsmål [5](question_num) - [En del besvær](Q_answer)
-    - Sporgsmål [11](question_num) - [Lidt besvær](Q_answer)
-    - Sporgsmål [8](question_num) - [Intet besvær](Q_answer)
-    - Sporgsmål [28](question_num) - [Helt enig](Q_answer)
-    - Sporgsmål [29](question_num) - [Delvist enig](Q_answer)
-    - Sporgsmål [34](question_num) - [Hverken enig eller uenig](Q_answer)
-    - Sporgsmål [39](question_num) - [Delvist uenig](Q_answer)
-    - Sporgsmål [42](question_num) - [Helt uenig](Q_answer)
+    - Spørgsmål [1](question_num) - [Kunne slet ikke](Q_answer)
+    - Spørgsmål [2](question_num) - [Meget besvær](Q_answer)
+    - Spørgsmål [5](question_num) - [En del besvær](Q_answer)
+    - Spørgsmål [11](question_num) - [Lidt besvær](Q_answer)
+    - Spørgsmål [8](question_num) - [Intet besvær](Q_answer)
+    - Spørgsmål [28](question_num) - [Helt enig](Q_answer)
+    - Spørgsmål [29](question_num) - [Delvist enig](Q_answer)
+    - Spørgsmål [34](question_num) - [Hverken enig eller uenig](Q_answer)
+    - Spørgsmål [39](question_num) - [Delvist uenig](Q_answer)
+    - Spørgsmål [42](question_num) - [Helt uenig](Q_answer)
     - Spørgsmål [1](question_num) - [meget besvær](Q_answer)
 - intent: change_answer_pls
   examples: |
@@ -156,3 +159,11 @@ nlu:
     - 11
     - 9
     - 2
+- intent: see_answer_overview
+  examples: |
+    - kan jeg se mine svar
+    - hvad svarede jeg sidst
+    - må jeg se mine svar
+    - se svar
+    - all svar
+    - tidligere svar

@@ -135,3 +135,10 @@ stories:
   - action: ValidationOfAnswer
   - intent: ask_for_help
   - action: GiveHelp
+
+- story: show_all_answers
+  steps:
+    - intent: see_answer_overview
+    - action: utter_want_to_see_answers
+    - intent: affirm
+    - action: AnswerOverview

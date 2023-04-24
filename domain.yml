@@ -14,6 +14,7 @@ intents:
 - mood_great
 - mood_unhappy
 - bot_challenge
+- see_answer_overview
 entities:
 - Q_answer
 - get_number
@@ -40,10 +41,13 @@ responses:
   - text: OK. Let me know if you need help with anything else.
   utter_dont_understand:
   - text: Sorry. I can't understand what you're trying to say. Can you please rephrase your question? :)
+  utter_want_to_see_answers:
+  - text: Vil du gerne se dine svar?
 actions:
 - AskForNewAnswer
 - ChangeAnswer
 - GiveHelp
 - ValidationOfAnswer
+- AnswerOverview
 - utter_answer_received
 - utter_which_question

@@ -148,6 +148,10 @@ class AskForNewAnswer(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        if (len(answers) == 0):
+            dispatcher.utter_message(text="Du har ikke svaret på nogle spørgsmål endnu.")
+            return []
+
         question_number = next(tracker.get_latest_entity_values('get_number'), None)
         question_number_index = int(question_number) - 1
         dispatcher.utter_message(text="Do you mean the question: " + questions[question_number_index])
@@ -173,6 +177,10 @@ class ChangeAnswer(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        if (len(answers) == 0):
+            dispatcher.utter_message(text="Du har ikke svaret på nogle spørgsmål endnu.")
+            return []
 
         new_answer = next(tracker.get_latest_entity_values('get_number'), None)
         index = int(new_answer) - 1
@@ -214,5 +222,30 @@ class GiveHelp(Action):
             dispatcher.utter_message(text="Here have some help " + reflective_questions[current])
         else:  # example
             dispatcher.utter_message(text="Here have some help " + examples[current])
+
+        return []
+
+class AnswerOverview(Action):
+
+    def name(self) -> Text:
+         return "AnswerOverview"
+
+    def concat_lists(self, list1, list2):
+        k = ""
+        for index in range(len(list2)):
+            s = "".join("\n"+"Q" + str(index + 1) + " - " + list1[index] + "\n" + "Dit svar: " + list2[index] + "." + "\n")
+            k += s
+        return k
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        if (len(answers) == 0):
+            dispatcher.utter_message(text="Du har ikke svaret på nogle spørgsmål endnu.")
+            return []
+
+        overview = self.concat_lists(questions, answers)
+        dispatcher.utter_message(text="Her er alle dine svar: " + overview)
 
         return []
