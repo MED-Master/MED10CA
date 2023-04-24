@@ -85,6 +85,10 @@ questions = ["Har De haft besvær med at tilberede et måltid?",
 
 context = ['a', 'b', 'c', 'd', 'e']
 
+reflective_questions = ['aR', 'bR', 'cR', 'dR', 'eR']
+
+examples = ['aE', 'bE', 'cE', 'dE', 'eE']
+
 SSQOLAnswerOptionsSvær = [
     "Kunne slet ikke",
     "Meget besvær",
@@ -102,9 +106,9 @@ SSQOLAnswerOptionsEnig = [
 ]
 
 
-
-
 class ValidationOfAnswer(Action):
+    currentQuestionNumber = 0
+
     def name(self) -> Text:
         return "ValidationOfAnswer"
 
@@ -113,21 +117,20 @@ class ValidationOfAnswer(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         q_answer = next(tracker.get_latest_entity_values('Q_answer'), None)
         q_number = next(tracker.get_latest_entity_values('question_num'), None)
-        print(type(q_number))
-        print(q_number)
-        print(q_answer)
+        ValidationOfAnswer.currentQuestionNumber = int(q_number)  # what question the user is answering currently
         q_number = int(q_number) - 1
         answers.append(q_answer)
         print("q_answer: " + q_answer)
 
         if q_number > 26:  # enig
-            dispatcher.utter_message(text="Du har svaret at du er: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
+            dispatcher.utter_message(
+                text="Du har svaret at du er: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
         else:  # svær
-            dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
+            dispatcher.utter_message(
+                text="Du har svaret at du har: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
 
         if q_number > 48:
             dispatcher.utter_message(text="Answer Summary")
-
 
         print("ValidationOfAnswer: " + str(len(answers)))
         print(answers)
@@ -137,6 +140,7 @@ class ValidationOfAnswer(Action):
 
 class AskForNewAnswer(Action):
     questionNumberToBeChanged = 0
+
     def name(self) -> Text:
         return "AskForNewAnswer"
 
@@ -149,7 +153,7 @@ class AskForNewAnswer(Action):
         dispatcher.utter_message(text="Do you mean the question: " + questions[question_number_index])
         dispatcher.utter_message(text="Your current answer is: " + answers[question_number_index])
         AskForNewAnswer.questionNumberToBeChanged = question_number_index
-        #print("questionNumberToBeChanged " + str(AskForNewAnswer.questionNumberToBeChanged))
+        # print("questionNumberToBeChanged " + str(AskForNewAnswer.questionNumberToBeChanged))
 
         if int(question_number) > 26:
             dispatcher.utter_message(
@@ -157,7 +161,7 @@ class AskForNewAnswer(Action):
         else:
             dispatcher.utter_message(
                 text="What would you like to change your answer to? Please write an answer between: " + answer_svær)
-        #print("AskForNewAnswer: " + question_number)
+        # print("AskForNewAnswer: " + question_number)
         return []
 
 
@@ -175,19 +179,40 @@ class ChangeAnswer(Action):
         saved_answer = ''
 
         print(answers)
-        if AskForNewAnswer.questionNumberToBeChanged > 26: #enig
+        if AskForNewAnswer.questionNumberToBeChanged > 26:  # enig
             answers[AskForNewAnswer.questionNumberToBeChanged] = SSQOLAnswerOptionsEnig[index]
             saved_answer = SSQOLAnswerOptionsEnig[index]
 
-        else: #svær
+        else:  # svær
             answers[AskForNewAnswer.questionNumberToBeChanged] = SSQOLAnswerOptionsSvær[index]
             saved_answer = SSQOLAnswerOptionsSvær[index]
 
         dispatcher.utter_message(text="Changed your answer to: " + saved_answer)
 
-        #print("new_answer: " + new_answer)
-        #print("question_number: " + question_number)
-        #print("questionNumberToBeChanged: " + int(questionNumberToBeChanged))
+        # print("new_answer: " + new_answer)
+        # print("question_number: " + question_number)
+        # print("questionNumberToBeChanged: " + int(questionNumberToBeChanged))
         print("Updated answers: " + str(answers))
+
+        return []
+
+
+class GiveHelp(Action):
+
+    def name(self) -> Text:
+        return "GiveHelp"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        help_type = 1  # reflective question
+        current = ValidationOfAnswer.currentQuestionNumber
+        print(current)
+
+        if help_type is 1:  # reflective question
+            dispatcher.utter_message(text="Here have some help " + reflective_questions[current])
+        else:  # example
+            dispatcher.utter_message(text="Here have some help " + examples[current])
 
         return []

@@ -3,6 +3,7 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- ask_for_help
 - SSQL_answer
 - give_number
 - change_answer_pls
@@ -42,6 +43,7 @@ responses:
 actions:
 - AskForNewAnswer
 - ChangeAnswer
+- GiveHelp
 - ValidationOfAnswer
 - utter_answer_received
 - utter_which_question

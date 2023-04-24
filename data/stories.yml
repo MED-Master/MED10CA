@@ -11,6 +11,11 @@ stories:
     - action: utter_answer_received
     - action: ValidationOfAnswer
 
+- story: help with answer
+  steps:
+    - intent: ask_for_help
+    - action: GiveHelp
+
 - story: change the answer
   steps:
     - intent: change_answer_pls
@@ -119,3 +124,14 @@ stories:
     entities:
     - get_number: '5'
   - action: ChangeAnswer
+
+- story: interactive_story_1
+  steps:
+  - intent: SSQL_answer
+    entities:
+    - question_num: '1'
+    - Q_answer: meget besvær
+  - action: utter_answer_received
+  - action: ValidationOfAnswer
+  - intent: ask_for_help
+  - action: GiveHelp

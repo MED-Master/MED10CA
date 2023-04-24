@@ -94,7 +94,7 @@ nlu:
     - Sporgsmål [34](question_num) - [Hverken enig eller uenig](Q_answer)
     - Sporgsmål [39](question_num) - [Delvist uenig](Q_answer)
     - Sporgsmål [42](question_num) - [Helt uenig](Q_answer)
-
+    - Spørgsmål [1](question_num) - [meget besvær](Q_answer)
 - intent: change_answer_pls
   examples: |
     - can I change my answer?
@@ -112,8 +112,15 @@ nlu:
     - question [21](get_number)
     - [1](get_number)
     - [3](get_number)
-    - [1](get_number)
-    - [5](get_number)
+- intent: ask_for_help
+  examples: |
+    - help
+    - I need help
+    - I don't understand the question
+    - what does that mean
+    - how do I answer
+    - can you help me answer
+    - what the fuck
 - lookup: question_num
   examples: |
     - 1
@@ -123,7 +130,7 @@ nlu:
     - 2
     - 16
     - 49
-    - 4 
+    - 4
     - 7
     - 15
     - 28
