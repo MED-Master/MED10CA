@@ -8,7 +8,6 @@ stories:
       entities:
       - question_num: 2
       - Q_answer: Meget svær
-    - action: utter_answer_received
     - action: ValidationOfAnswer
 
 - story: help with answer
@@ -29,7 +28,6 @@ stories:
   - intent: SSQL_answer
     entities:
     - Q_answer: Meget besvær
-  - action: utter_answer_received
   - action: ValidationOfAnswer
   - intent: change_answer_pls
   - action: utter_which_question
@@ -40,7 +38,6 @@ stories:
   - intent: SSQL_answer
     entities:
     - Q_answer: Meget svært
-  - action: utter_answer_received
   - action: ValidationOfAnswer
 
 - story: interactive_story_3
@@ -112,7 +109,6 @@ stories:
   - intent: SSQL_answer
     entities:
     - Q_answer: Meget Svær
-  - action: utter_answer_received
   - action: ValidationOfAnswer
   - intent: change_answer_pls
   - action: utter_which_question
@@ -131,7 +127,6 @@ stories:
     entities:
     - question_num: '1'
     - Q_answer: meget besvær
-  - action: utter_answer_received
   - action: ValidationOfAnswer
   - intent: ask_for_help
   - action: GiveHelp

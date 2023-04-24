@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ed2e0a8-a0e8-4097-bb66-8152ae8d2d8f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/models/20230424-185506-resolving-container.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.rasa/cache/cache.db" beforeDir="false" afterPath="$PROJECT_DIR$/.rasa/cache/cache.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actions/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/actions/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nlu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data/nlu.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/stories.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data/stories.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logTwo.db" beforeDir="false" afterPath="$PROJECT_DIR$/logTwo.db" afterDir="false" />
@@ -171,7 +167,7 @@
       <workItem from="1682006546275" duration="6550000" />
       <workItem from="1682061723873" duration="3941000" />
       <workItem from="1682240552037" duration="8030000" />
-      <workItem from="1682354153773" duration="3008000" />
+      <workItem from="1682354153773" duration="7680000" />
     </task>
     <servers />
   </component>

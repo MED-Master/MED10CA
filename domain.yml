@@ -33,8 +33,6 @@ responses:
   - text: Bye
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
-  utter_answer_received:
-  - text: I got your answer!
   utter_which_question:
   - text: Which question number would you like to change the answer to?
   utter_helpful_bot:
@@ -49,5 +47,4 @@ actions:
 - GiveHelp
 - ValidationOfAnswer
 - AnswerOverview
-- utter_answer_received
 - utter_which_question

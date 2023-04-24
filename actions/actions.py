@@ -8,6 +8,8 @@
 # This is a simple example for a custom action which utters "Hello World!"
 
 from typing import Any, Text, Dict, List
+import threading
+import time
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -122,21 +124,20 @@ class ValidationOfAnswer(Action):
         answers.append(q_answer)
         print("q_answer: " + q_answer)
 
-        if q_number > 26:  # enig
-            dispatcher.utter_message(
-                text="Du har svaret at du er: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
-        else:  # svær
-            dispatcher.utter_message(
-                text="Du har svaret at du har: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
+        if q_number < 26:  # svær
+            dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
+            return []
+        #enig
+        dispatcher.utter_message(text="Du har svaret at du er: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
 
         if q_number > 48:
-            dispatcher.utter_message(text="Answer Summary")
+            dispatcher.utter_message(text="Du har nu besvaret alle spørgsmål. Du kan nu se dine svar ved at skrive på 'Se alle svar'")
+
 
         print("ValidationOfAnswer: " + str(len(answers)))
         print(answers)
 
         return []
-
 
 class AskForNewAnswer(Action):
     questionNumberToBeChanged = 0
@@ -161,10 +162,10 @@ class AskForNewAnswer(Action):
 
         if int(question_number) > 26:
             dispatcher.utter_message(
-                text="What would you like to change your answer to? Please write an answer between: " + answer_enig)
+                text="Hvad vil du gerne ændre dit svar til? Skriv venligst et svar imellem: " + answer_enig)
         else:
             dispatcher.utter_message(
-                text="What would you like to change your answer to? Please write an answer between: " + answer_svær)
+                text="Hvad vil du gerne ændre dit svar til? Skriv venligst et svar imellem: " + answer_svær)
         # print("AskForNewAnswer: " + question_number)
         return []
 
@@ -195,7 +196,7 @@ class ChangeAnswer(Action):
             answers[AskForNewAnswer.questionNumberToBeChanged] = SSQOLAnswerOptionsSvær[index]
             saved_answer = SSQOLAnswerOptionsSvær[index]
 
-        dispatcher.utter_message(text="Changed your answer to: " + saved_answer)
+        dispatcher.utter_message(text="Dit svar er ændret til: " + saved_answer)
 
         # print("new_answer: " + new_answer)
         # print("question_number: " + question_number)
@@ -219,9 +220,9 @@ class GiveHelp(Action):
         print(current)
 
         if help_type is 1:  # reflective question
-            dispatcher.utter_message(text="Here have some help " + reflective_questions[current])
+            dispatcher.utter_message(text="Her er noget hjælp " + reflective_questions[current])
         else:  # example
-            dispatcher.utter_message(text="Here have some help " + examples[current])
+            dispatcher.utter_message(text="Her er noget hjælp " + examples[current])
 
         return []
 
@@ -233,7 +234,7 @@ class AnswerOverview(Action):
     def concat_lists(self, list1, list2):
         k = ""
         for index in range(len(list2)):
-            s = "".join("\n"+"Q" + str(index + 1) + " - " + list1[index] + "\n" + "Dit svar: " + list2[index] + "." + "\n")
+            s = "".join("\n" + str(index + 1) + " - " + list1[index] + "\n" + "Dit svar: " + list2[index] + "." + "\n")
             k += s
         return k
 
