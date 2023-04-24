@@ -28,6 +28,7 @@ from rasa_sdk.executor import CollectingDispatcher
 #         return []
 
 answers = []
+
 answer_svær = "Kunne slet ikke - Meget besvær -En del besvær - Lidt besvær - Intet besvær"
 
 answer_enig = "Helt enig - Delvist enig - Hverken enig eller uenig - Delvist uenig - Helt uenig"
@@ -82,6 +83,24 @@ questions = ["Har De haft besvær med at tilberede et måltid?",
              "Jeg har følt mig træt det meste af tiden.",
              "Jeg har været for træt til at gøre det, jeg gerne ville."]
 
+context = ['a', 'b', 'c', 'd', 'e']
+
+SSQOLAnswerOptionsSvær = [
+    "Kunne slet ikke",
+    "Meget besvær",
+    "En del besvær",
+    "Lidt besvær",
+    "Intet besvær"
+]
+
+SSQOLAnswerOptionsEnig = [
+    "Helt enig",
+    "Delvist enig",
+    "Hverken enig eller uenig",
+    "Delvist uenig",
+    "Helt uenig"
+]
+
 
 
 
@@ -93,9 +112,23 @@ class ValidationOfAnswer(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         q_answer = next(tracker.get_latest_entity_values('Q_answer'), None)
+        q_number = next(tracker.get_latest_entity_values('question_num'), None)
+        print(type(q_number))
+        print(q_number)
+        print(q_answer)
+        q_number = int(q_number) - 1
         answers.append(q_answer)
         print("q_answer: " + q_answer)
-        dispatcher.utter_message(text="Dit svar: " + q_answer)
+
+        if q_number > 26:  # enig
+            dispatcher.utter_message(text="Du har svaret at du er: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
+        else:  # svær
+            dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
+
+        if q_number > 48:
+            dispatcher.utter_message(text="Answer Summary")
+
+
         print("ValidationOfAnswer: " + str(len(answers)))
         print(answers)
 
@@ -103,6 +136,7 @@ class ValidationOfAnswer(Action):
 
 
 class AskForNewAnswer(Action):
+    questionNumberToBeChanged = 0
     def name(self) -> Text:
         return "AskForNewAnswer"
 
@@ -111,7 +145,11 @@ class AskForNewAnswer(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         question_number = next(tracker.get_latest_entity_values('get_number'), None)
-        dispatcher.utter_message(text="Do you mean the question: " + questions[int(question_number) - 1])
+        question_number_index = int(question_number) - 1
+        dispatcher.utter_message(text="Do you mean the question: " + questions[question_number_index])
+        dispatcher.utter_message(text="Your current answer is: " + answers[question_number_index])
+        AskForNewAnswer.questionNumberToBeChanged = question_number_index
+        #print("questionNumberToBeChanged " + str(AskForNewAnswer.questionNumberToBeChanged))
 
         if int(question_number) > 26:
             dispatcher.utter_message(
@@ -119,7 +157,7 @@ class AskForNewAnswer(Action):
         else:
             dispatcher.utter_message(
                 text="What would you like to change your answer to? Please write an answer between: " + answer_svær)
-        print("AskForNewAnswer: " + question_number)
+        #print("AskForNewAnswer: " + question_number)
         return []
 
 
@@ -131,19 +169,25 @@ class ChangeAnswer(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        #question_number = next(tracker.get_latest_entity_values('get_number'), None)
-        #questionNumberToBeChanged = int(question_number) - 1
 
         new_answer = next(tracker.get_latest_entity_values('get_number'), None)
-        #answers[questionNumberToBeChanged] = str(new_answer)
+        index = int(new_answer) - 1
+        saved_answer = ''
 
+        print(answers)
+        if AskForNewAnswer.questionNumberToBeChanged > 26: #enig
+            answers[AskForNewAnswer.questionNumberToBeChanged] = SSQOLAnswerOptionsEnig[index]
+            saved_answer = SSQOLAnswerOptionsEnig[index]
 
-        dispatcher.utter_message(
-            text="Change successful")
+        else: #svær
+            answers[AskForNewAnswer.questionNumberToBeChanged] = SSQOLAnswerOptionsSvær[index]
+            saved_answer = SSQOLAnswerOptionsSvær[index]
 
-        print("new_answer: " + new_answer)
+        dispatcher.utter_message(text="Changed your answer to: " + saved_answer)
+
+        #print("new_answer: " + new_answer)
         #print("question_number: " + question_number)
         #print("questionNumberToBeChanged: " + int(questionNumberToBeChanged))
-        print("ChangeAnswer: " + str(answers))
+        print("Updated answers: " + str(answers))
 
         return []

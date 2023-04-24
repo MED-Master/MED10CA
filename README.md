@@ -20,6 +20,7 @@
 - `rasa train` - optional if next command fails (deserialization error)
 - `rasa run --model models --enable-api --cors "*"` - start RASA server
 - run Data Collection - start the API proxy server
+- `rasa run actions` - runs action sdk
 
 ## In VSCode
 - npm start

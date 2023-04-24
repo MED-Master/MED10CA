@@ -84,18 +84,17 @@ nlu:
     - am I talking to a human?
 - intent: SSQL_answer
   examples: |
-    - Q[1](question_num) [Kunne slet ikke](Q_answer)
-    - Q[1](question_num) [Meget besvær](Q_answer)
-    - Q[1](question_num) [En del besvær](Q_answer)
-    - Q[1](question_num) [Lidt besvær](Q_answer)
-    - Q[1](question_num) [Intet besvær](Q_answer)
-    - Q[1](question_num) [Helt enig](Q_answer)
-    - Q[1](question_num) [Delvist enig](Q_answer)
-    - Q[1](question_num) [Hverken enig eller uenig](Q_answer)
-    - Q[1](question_num) [Delvist uenig](Q_answer)
-    - Q[1](question_num) [Helt uenig](Q_answer)
-    - Q1 [Meget besvær](Q_answer)
-    - Q1 [Meget svært](Q_answer)
+    - Sporgsmål [1](question_num) - [Kunne slet ikke](Q_answer)
+    - Sporgsmål [2](question_num) - [Meget besvær](Q_answer)
+    - Sporgsmål [5](question_num) - [En del besvær](Q_answer)
+    - Sporgsmål [11](question_num) - [Lidt besvær](Q_answer)
+    - Sporgsmål [8](question_num) - [Intet besvær](Q_answer)
+    - Sporgsmål [28](question_num) - [Helt enig](Q_answer)
+    - Sporgsmål [29](question_num) - [Delvist enig](Q_answer)
+    - Sporgsmål [34](question_num) - [Hverken enig eller uenig](Q_answer)
+    - Sporgsmål [39](question_num) - [Delvist uenig](Q_answer)
+    - Sporgsmål [42](question_num) - [Helt uenig](Q_answer)
+
 - intent: change_answer_pls
   examples: |
     - can I change my answer?
@@ -103,6 +102,7 @@ nlu:
     - that's incorrect
     - change answer
     - chance  answer
+    - chnage answer
 - intent: give_number
   examples: |
     - number [4](get_number)
@@ -112,6 +112,8 @@ nlu:
     - question [21](get_number)
     - [1](get_number)
     - [3](get_number)
+    - [1](get_number)
+    - [5](get_number)
 - lookup: question_num
   examples: |
     - 1
@@ -121,6 +123,11 @@ nlu:
     - 2
     - 16
     - 49
+    - 4 
+    - 7
+    - 15
+    - 28
+    - 22
 - lookup: Q_answer
   examples: |
     - Kunne slet ikke
