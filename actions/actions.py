@@ -13,9 +13,8 @@ import time
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+import pandas as pd
 
-#
-#
 # class ActionHelloWorld(Action):
 #
 #     def name(self) -> Text:
@@ -28,6 +27,14 @@ from rasa_sdk.executor import CollectingDispatcher
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
+#DF[Rows:  questions, Columns: context[1-5], Reflective Questions[6], EXAMPLE[7]
+#print(df.at[49, 7])
+df = pd.read_csv("manuscript.csv", header=None)
+df.drop(0, axis=1, inplace=True)
+df.drop(0, axis=0, inplace=True)
+
+
+
 
 answers = []
 
@@ -85,11 +92,11 @@ questions = ["Har De haft besvær med at tilberede et måltid?",
              "Jeg har følt mig træt det meste af tiden.",
              "Jeg har været for træt til at gøre det, jeg gerne ville."]
 
-context = ['a', 'b', 'c', 'd', 'e']
+context = ['a', 'b', 'c', 'd', 'e'] #TODO delete when df works
 
-reflective_questions = ['aR', 'bR', 'cR', 'dR', 'eR']
+reflective_questions = ['aR', 'bR', 'cR', 'dR', 'eR'] #TODO delete when df works
 
-examples = ['aE', 'bE', 'cE', 'dE', 'eE']
+examples = ['aE', 'bE', 'cE', 'dE', 'eE'] #TODO delete when df works
 
 SSQOLAnswerOptionsSvær = [
     "Kunne slet ikke",
