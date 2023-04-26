@@ -117,8 +117,7 @@ SSQOLAnswerOptionsEnig = [
 
 
 class ValidationOfAnswer(Action):
-    currentQuestionNumber = 0
-
+    currentQuestionNumber = 1
     def name(self) -> Text:
         return "ValidationOfAnswer"
 
@@ -158,8 +157,6 @@ class ValidationOfAnswer(Action):
         # print(df.at[49, 7])
         if q_number < 26:  # svær
             answerCaseBesvær = self.answerToInt(q_answer, "besvær")
-            print("answerCase: " + str(answerCaseBesvær))
-            print(df.at[q_number, answerCaseBesvær])
             dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ". " + "\n" + df.at[q_number, answerCaseBesvær])
             return []
         #enig
@@ -256,9 +253,9 @@ class GiveHelp(Action):
         print(current)
 
         if help_type is 1:  # reflective question
-            dispatcher.utter_message(text="Her er noget hjælp " + reflective_questions[current])
+            dispatcher.utter_message(text="Her er noget hjælp: " + df.at[current, 6])
         else:  # example
-            dispatcher.utter_message(text="Her er noget hjælp " + examples[current])
+            dispatcher.utter_message(text="Her er noget hjælp: " + df.at[current, 7])
 
         return []
 
