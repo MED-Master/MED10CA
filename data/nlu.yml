@@ -167,3 +167,11 @@ nlu:
     - se svar
     - all svar
     - tidligere svar
+- intent: see_rasa_functions
+  examples: |
+    - kan kan du
+    - hvad kan RASA
+    - funktioner
+    - liste af funktioner
+    - liste af muligheder
+    - muligheder

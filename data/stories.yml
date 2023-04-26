@@ -137,3 +137,8 @@ stories:
     - action: utter_want_to_see_answers
     - intent: affirm
     - action: AnswerOverview
+
+- story: show_all_functions
+  steps:
+    - intent: see_rasa_functions
+    - action: ListOfFunctions

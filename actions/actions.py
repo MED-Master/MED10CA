@@ -93,11 +93,7 @@ questions = ["Har De haft besvær med at tilberede et måltid?",
              "Jeg har følt mig træt det meste af tiden.",
              "Jeg har været for træt til at gøre det, jeg gerne ville."]
 
-context = ['a', 'b', 'c', 'd', 'e'] #TODO delete when df works
 
-reflective_questions = ['aR', 'bR', 'cR', 'dR', 'eR'] #TODO delete when df works
-
-examples = ['aE', 'bE', 'cE', 'dE', 'eE'] #TODO delete when df works
 
 SSQOLAnswerOptionsSvær = [
     "Kunne slet ikke",
@@ -164,7 +160,7 @@ class ValidationOfAnswer(Action):
         dispatcher.utter_message(text="Du har svaret at du er: " + q_answer + ". " + "\n" + df.at[q_number, answerCaseEnig])
 
         if q_number > 48:
-            dispatcher.utter_message(text="Du har nu besvaret alle spørgsmål. Du kan nu se dine svar ved at skrive på 'Se alle svar'")
+            dispatcher.utter_message(text="Tillykke du har gennemført spørgeskemaet. Tak for din time!" + "\n" + "Du kan nu se dine svar ved at skrive på 'Se alle svar'")
 
 
         print("ValidationOfAnswer: " + str(len(answers)))
@@ -281,5 +277,18 @@ class AnswerOverview(Action):
 
         overview = self.concat_lists(questions, answers)
         dispatcher.utter_message(text="Her er alle dine svar: " + overview)
+
+        return []
+
+class ListOfFunctions(Action):
+
+    def name(self) -> Text:
+        return "ListOfFunctions"
+
+    def run(self, dispatcher: CollectingDispatcher,
+             tracker: Tracker,
+             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        #change answer, help, answer overview
+        dispatcher.utter_message(text="Jeg kan hjælpe dig med følgende: " + "\n" + "1. Ændre et svar." + "\n" + "2. Få hjælp til et spørgsmål." + "\n" + "3. Se alle dine svar.")
 
         return []

@@ -15,6 +15,7 @@ intents:
 - mood_unhappy
 - bot_challenge
 - see_answer_overview
+- see_rasa_functions
 entities:
 - Q_answer
 - get_number
@@ -47,4 +48,5 @@ actions:
 - GiveHelp
 - ValidationOfAnswer
 - AnswerOverview
+- ListOfFunctions
 - utter_which_question
