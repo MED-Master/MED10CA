@@ -10,6 +10,7 @@
 from typing import Any, Text, Dict, List
 import threading
 import time
+import re
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -121,6 +122,30 @@ class ValidationOfAnswer(Action):
     def name(self) -> Text:
         return "ValidationOfAnswer"
 
+    def answerToInt(self, expression, type):
+        cases = {}
+        if type == "besvær":
+            cases = {
+                "Kunne slet ikke": 1,
+                "Meget besvær": 2,
+                "En del besvær": 3,
+                "Lidt besvær": 4,
+                "Intet besvær": 5 }
+        elif type == "enig":
+            cases = {
+                "Helt enig": 1,
+                "Delvist enig": 2,
+                "Hverken enig eller uenig": 3,
+                "Delvist uenig": 4,
+                "Helt uenig": 5}
+        for key, value in cases.items():
+            if re.match(key, expression):
+                return value
+        return "Invalid case"
+
+
+
+
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
@@ -130,12 +155,16 @@ class ValidationOfAnswer(Action):
         q_number = int(q_number) - 1
         answers.append(q_answer)
         print("q_answer: " + q_answer)
-
+        # print(df.at[49, 7])
         if q_number < 26:  # svær
-            dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
+            answerCaseBesvær = self.answerToInt(q_answer, "besvær")
+            print("answerCase: " + str(answerCaseBesvær))
+            print(df.at[q_number, answerCaseBesvær])
+            dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ". " + "\n" + df.at[q_number, answerCaseBesvær])
             return []
         #enig
-        dispatcher.utter_message(text="Du har svaret at du er: " + q_answer + ", hvilket betyder " + context[q_number] + '.')
+        answerCaseEnig = self.answerToInt(q_answer, "enig")
+        dispatcher.utter_message(text="Du har svaret at du er: " + q_answer + ". " + "\n" + df.at[q_number, answerCaseEnig])
 
         if q_number > 48:
             dispatcher.utter_message(text="Du har nu besvaret alle spørgsmål. Du kan nu se dine svar ved at skrive på 'Se alle svar'")

@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ed2e0a8-a0e8-4097-bb66-8152ae8d2d8f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/manuscript.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actions/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/actions/actions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logTwo.db" beforeDir="false" afterPath="$PROJECT_DIR$/logTwo.db" afterDir="false" />
     </list>
     <list id="922a1971-0e60-4c04-972d-119e692178bf" name="Changes by veronikanemcova" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +55,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
   </component>
-  <component name="RunManager" selected="Python.Test">
+  <component name="RunManager" selected="Python.Data Collection">
     <configuration name="Data Collection (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MED_10CA" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,8 +158,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Test" />
         <item itemvalue="Python.Data Collection" />
+        <item itemvalue="Python.Test" />
         <item itemvalue="Python.Data Collection (1)" />
       </list>
     </recent_temporary>
@@ -190,7 +190,8 @@
       <workItem from="1682061723873" duration="3941000" />
       <workItem from="1682240552037" duration="8030000" />
       <workItem from="1682354153773" duration="8009000" />
-      <workItem from="1682409879326" duration="7672000" />
+      <workItem from="1682409879326" duration="7725000" />
+      <workItem from="1682492059581" duration="3505000" />
     </task>
     <servers />
   </component>
@@ -213,7 +214,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MED10CA$Data_Collection.coverage" NAME="Data Collection Coverage Results" MODIFIED="1682354221811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MED10CA$Data_Collection.coverage" NAME="Data Collection Coverage Results" MODIFIED="1682492237240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MED10CA$Test.coverage" NAME="Test Coverage Results" MODIFIED="1682433956902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
