@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6ed2e0a8-a0e8-4097-bb66-8152ae8d2d8f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/actions/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/actions/actions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/nlu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data/nlu.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logTwo.db" beforeDir="false" afterPath="$PROJECT_DIR$/logTwo.db" afterDir="false" />
     </list>
     <list id="922a1971-0e60-4c04-972d-119e692178bf" name="Changes by veronikanemcova" comment="" />
@@ -200,7 +200,7 @@
       <workItem from="1682240552037" duration="8030000" />
       <workItem from="1682354153773" duration="8009000" />
       <workItem from="1682409879326" duration="7725000" />
-      <workItem from="1682492059581" duration="14419000" />
+      <workItem from="1682492059581" duration="16537000" />
     </task>
     <servers />
   </component>

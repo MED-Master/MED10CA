@@ -3,30 +3,16 @@ nlu:
 - intent: greet
   examples: |
     - hey
-    - hello
     - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - hej
+    - ohøj
+    - hej med dig
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - farvel
+    - hej hej
+    - ses
+    - vi ses
 - intent: affirm
   examples: |
     - yes
@@ -40,51 +26,20 @@ nlu:
     - korrekt
 - intent: deny
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - nej
+    - nej tak
+    - det kan jeg ikke lide
+    - næ
+    - næh
+
+
 - intent: bot_challenge
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - er du en bot
+    - er du en chatbot
+    - er du en robot
+    - er du et menneske
+
 - intent: SSQL_answer
   examples: |
     - Spørgsmål [1](question_num) - [Kunne slet ikke](Q_answer)
@@ -100,12 +55,15 @@ nlu:
     - Spørgsmål [1](question_num) - [meget besvær](Q_answer)
 - intent: change_answer_pls
   examples: |
-    - can I change my answer?
-    - I gave the wrong answer
-    - that's incorrect
-    - change answer
-    - chance  answer
-    - chnage answer
+    - kan jeg ændre svaret
+    - kan jeg ændre mit svaret
+    - Jeg gav det forkerte svar
+    - det er ikke det rigtige svar
+    - det er ikke korrekt
+    - ændre svar
+    - ønkser at ændre svaret
+    - nyt svar
+    - skift svar
 - intent: give_number
   examples: |
     - number [4](get_number)
@@ -117,13 +75,14 @@ nlu:
     - [3](get_number)
 - intent: ask_for_help
   examples: |
-    - help
-    - I need help
-    - I don't understand the question
-    - what does that mean
-    - how do I answer
-    - can you help me answer
-    - what the fuck
+    - hjælp
+    - jeg har brug for hjælp
+    - Jeg forstår ikke spørgsmålet
+    - hvad betyder det
+    - hvordan svarer jeg
+    - can du hjælpe mig med at svare
+    - hvad fandne jeg svare på
+    - svare
 - lookup: question_num
   examples: |
     - 1

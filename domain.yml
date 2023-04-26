@@ -22,24 +22,19 @@ entities:
 - question_num
 responses:
   utter_greet:
-  - text: Hey! How are you?
-  utter_cheer_up:
-  - text: 'Here is something to cheer you up:'
-    image: https://i.imgur.com/nGF1K8f.jpg
+  - text: Hej, lad os starte på spørgeskemaet!
   utter_did_that_help:
-  - text: Did that help you?
-  utter_happy:
-  - text: Great, carry on!
+  - text: Hjalp det dig?
   utter_goodbye:
-  - text: Bye
+  - text: Farvel og tak for i dag!
   utter_iamabot:
-  - text: I am a bot, powered by Rasa.
+  - text: Jeg er en chatbot som er lavet på Aalborg Universitet.
   utter_which_question:
-  - text: Which question number would you like to change the answer to?
+  - text: Hvilket spørgsmålsnummer vil du gerne ændre svaret på?
   utter_helpful_bot:
-  - text: OK. Let me know if you need help with anything else.
+  - text: Sig til, hvis du har brug for hjælp til andet.
   utter_dont_understand:
-  - text: Sorry. I can't understand what you're trying to say. Can you please rephrase your question? :)
+  - text: Undskyld. Jeg kan ikke forstå, hvad du prøver at sige. Kan du venligst omformulere dit spørgsmål? :)
   utter_want_to_see_answers:
   - text: Vil du gerne se dine svar?
 actions:
