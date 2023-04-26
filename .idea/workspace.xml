@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ed2e0a8-a0e8-4097-bb66-8152ae8d2d8f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/models/20230426-105724-beveled-crescendo.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.rasa/cache/cache.db" beforeDir="false" afterPath="$PROJECT_DIR$/.rasa/cache/cache.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/actions/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/actions/actions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/nlu.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data/nlu.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stories.yml" beforeDir="false" afterPath="$PROJECT_DIR$/data/stories.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logTwo.db" beforeDir="false" afterPath="$PROJECT_DIR$/logTwo.db" afterDir="false" />
     </list>
     <list id="922a1971-0e60-4c04-972d-119e692178bf" name="Changes by veronikanemcova" comment="" />
@@ -204,7 +200,7 @@
       <workItem from="1682240552037" duration="8030000" />
       <workItem from="1682354153773" duration="8009000" />
       <workItem from="1682409879326" duration="7725000" />
-      <workItem from="1682492059581" duration="7075000" />
+      <workItem from="1682492059581" duration="14419000" />
     </task>
     <servers />
   </component>
@@ -227,7 +223,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MED10CA$Data_Collection.coverage" NAME="Data Collection Coverage Results" MODIFIED="1682492237240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MED10CA$Data_Collection.coverage" NAME="Data Collection Coverage Results" MODIFIED="1682504917474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MED10CA$Test.coverage" NAME="Test Coverage Results" MODIFIED="1682433956902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

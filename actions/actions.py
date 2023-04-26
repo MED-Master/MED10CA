@@ -34,7 +34,9 @@ df = pd.read_csv("manuscript.csv", header=None)
 df.drop(0, axis=1, inplace=True)
 df.drop(0, axis=0, inplace=True)
 
-
+global condition
+# 1 == reflective question else == example
+condition = 2
 
 
 answers = []
@@ -138,8 +140,15 @@ class ValidationOfAnswer(Action):
                 return value
         return "Invalid case"
 
-
-
+    def giveHelpPer5thQuestion(self, q_number, setCondition):
+        if q_number % 5 == 0:
+            help_type = setCondition
+            if help_type is 1:  # reflective question
+                return "Her er noget hjælp til det næste spørgsmål': " + df.at[q_number, 6]
+            else:  # example
+                return "Her er noget hjælp til det næste spørgsmål: " + df.at[q_number, 7]
+        else:
+            return ""
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -147,13 +156,20 @@ class ValidationOfAnswer(Action):
         q_answer = next(tracker.get_latest_entity_values('Q_answer'), None)
         q_number = next(tracker.get_latest_entity_values('question_num'), None)
         ValidationOfAnswer.currentQuestionNumber = int(q_number)  # what question the user is answering currently
+        entityQNumber = int(q_number)
         q_number = int(q_number) - 1
         answers.append(q_answer)
         print("q_answer: " + q_answer)
         # print(df.at[49, 7])
         if q_number < 26:  # svær
             answerCaseBesvær = self.answerToInt(q_answer, "besvær")
-            dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ". " + "\n" + df.at[q_number, answerCaseBesvær])
+            print("answerCaseBesvær" + str(answerCaseBesvær))
+            print("q_number" + str(q_number))
+            dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ". " + "\n" + df.at[entityQNumber, answerCaseBesvær])
+            addManipulation = self.giveHelpPer5thQuestion(entityQNumber, condition)
+            if addManipulation != "":
+                print("addManipulation: " + addManipulation)
+                dispatcher.utter_message(text=addManipulation)
             return []
         #enig
         answerCaseEnig = self.answerToInt(q_answer, "enig")
@@ -244,7 +260,7 @@ class GiveHelp(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        help_type = 1  # reflective question
+        help_type = condition
         current = ValidationOfAnswer.currentQuestionNumber
         print(current)
 
@@ -289,6 +305,6 @@ class ListOfFunctions(Action):
              tracker: Tracker,
              domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         #change answer, help, answer overview
-        dispatcher.utter_message(text="Jeg kan hjælpe dig med følgende: " + "\n" + "1. Ændre et svar." + "\n" + "2. Få hjælp til et spørgsmål." + "\n" + "3. Se alle dine svar.")
+        dispatcher.utter_message(text="Jeg kan hjælpe dig med følgende: " + "\n" + "1. Ændre et svar." + "\n" + "2. Få hjælp til et spørgsmål." + "\n" + "3. Se alle dine svar.""\n" + "4. Se all RASA funktioner.")
 
         return []
