@@ -32,7 +32,7 @@ responses:
   utter_which_question:
   - text: Hvilket spørgsmålsnummer vil du gerne ændre svaret på?
   utter_helpful_bot:
-  - text: Sig til, hvis du har brug for hjælp til andet.
+  - text: Okay. Sig til, hvis du har brug for hjælp til andet.
   utter_dont_understand:
   - text: Undskyld. Jeg kan ikke forstå, hvad du prøver at sige. Kan du venligst omformulere dit spørgsmål? :)
   utter_want_to_see_answers:

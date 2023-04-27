@@ -45,9 +45,9 @@ class ConditionController:
 
 answers = []
 
-answer_svær = "Kunne slet ikke - Meget besvær -En del besvær - Lidt besvær - Intet besvær"
+answer_svær = "\n" + "1: Kunne slet ikke" + "\n" + "2: Meget besvær" + "\n" + "3: En del besvær" + "\n" +"4: Lidt besvær" + "\n" + "5: Intet besvær"
 
-answer_enig = "Helt enig - Delvist enig - Hverken enig eller uenig - Delvist uenig - Helt uenig"
+answer_enig = "\n" + "1: Helt enig" + "\n" + "2: Delvist enig" + "\n" + "3: Hverken enig eller uenig" + "\n" + "4: Delvist uenig" + "\n" + "5: Helt uenig"
 
 questions = ["Har De haft besvær med at tilberede et måltid?",
              "Har De haft besvær med at spise?",
@@ -146,12 +146,12 @@ class ValidationOfAnswer(Action):
         return "Invalid case"
 
     def giveHelpPer5thQuestion(self, q_number, setCondition):
-        if q_number % 5 == 0:
+        if ((q_number + 1) % 5 == 0 or q_number == 23 or q_number == 48) and q_number != 24 and q_number != 49:
             help_type = setCondition
             if help_type is 1:  # reflective question
-                return "Her er noget hjælp til det næste spørgsmål': " + df.at[q_number, 6]
+                return "Her er noget hjælp til det næste spørgsmål: " + df.at[(q_number+1), 6]
             else:  # example
-                return "Her er noget hjælp til det næste spørgsmål: " + df.at[q_number, 7]
+                return "Her er noget hjælp til det næste spørgsmål: " + df.at[(q_number + 1), 7]
         else:
             return ""
 
@@ -164,29 +164,20 @@ class ValidationOfAnswer(Action):
         entityQNumber = int(q_number) # this one is used to get the correct question from the dataframe that starts at 1 instead of 0
         q_number = int(q_number) - 1 # used to call the array that starts at 0 instead of 1
         answers.append(q_answer)
-        print("q_answer: " + q_answer)
         if entityQNumber > 24: self.manipulationCondition = ConditionController.endCondition
         # print(df.at[49, 7])
         if q_number < 26:  # svær
             answerCaseBesvær = self.answerToInt(q_answer, "besvær")
-            print("answerCaseBesvær" + str(answerCaseBesvær))
-            print("q_number" + str(q_number))
             dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ". " + "\n" + df.at[entityQNumber, answerCaseBesvær])
-            addManipulation = self.giveHelpPer5thQuestion(entityQNumber, self.manipulationCondition)
-            if addManipulation != "":
-                print("addManipulation: " + addManipulation)
-                dispatcher.utter_message(text=addManipulation)
-            return []
-        #enig
-        answerCaseEnig = self.answerToInt(q_answer, "enig")
-        dispatcher.utter_message(text="Du har svaret at du er: " + q_answer + ". " + "\n" + df.at[q_number, answerCaseEnig])
+        else: #enig
+            answerCaseEnig = self.answerToInt(q_answer, "enig")
+            dispatcher.utter_message(text="Du har svaret at du er: " + q_answer + ". " + "\n" + df.at[entityQNumber, answerCaseEnig])
+        addManipulation = self.giveHelpPer5thQuestion(entityQNumber, self.manipulationCondition)
+        if addManipulation != "":
+            dispatcher.utter_message(text=addManipulation)
 
-        if q_number > 48:
+        if entityQNumber > 48:
             dispatcher.utter_message(text="Tillykke du har gennemført spørgeskemaet. Tak for din time!" + "\n" + "Du kan nu se dine svar ved at skrive på 'Se alle svar'")
-
-
-        print("ValidationOfAnswer: " + str(len(answers)))
-        print(answers)
 
         return []
 
@@ -206,17 +197,17 @@ class AskForNewAnswer(Action):
 
         question_number = next(tracker.get_latest_entity_values('get_number'), None)
         question_number_index = int(question_number) - 1
-        dispatcher.utter_message(text="Do you mean the question: " + questions[question_number_index])
-        dispatcher.utter_message(text="Your current answer is: " + answers[question_number_index])
+        dispatcher.utter_message(text="Mener du spørgsmål: " + questions[question_number_index])
+        dispatcher.utter_message(text="Dit nuværende svar er: " + answers[question_number_index])
         AskForNewAnswer.questionNumberToBeChanged = question_number_index
         # print("questionNumberToBeChanged " + str(AskForNewAnswer.questionNumberToBeChanged))
 
         if int(question_number) > 26:
             dispatcher.utter_message(
-                text="Hvad vil du gerne ændre dit svar til? Skriv venligst et svar imellem: " + answer_enig)
+                text="Hvad vil du gerne ændre dit svar til? Skriv venligst et nummer imellem 1 og 5: " + answer_enig)
         else:
             dispatcher.utter_message(
-                text="Hvad vil du gerne ændre dit svar til? Skriv venligst et svar imellem: " + answer_svær)
+                text="Hvad vil du gerne ændre dit svar til? Skriv venligst et nummer imellem 1 og 5: " + answer_svær)
         # print("AskForNewAnswer: " + question_number)
         return []
 
@@ -236,6 +227,9 @@ class ChangeAnswer(Action):
 
         new_answer = next(tracker.get_latest_entity_values('get_number'), None)
         index = int(new_answer) - 1
+        if index < 0 or index > 4:
+            dispatcher.utter_message(text="Du skal skrive et nummer imellem 1 og 5")
+            return []
         saved_answer = ''
 
         print(answers)
@@ -311,6 +305,6 @@ class ListOfFunctions(Action):
              tracker: Tracker,
              domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         #change answer, help, answer overview
-        dispatcher.utter_message(text="Jeg kan hjælpe dig med følgende: " + "\n" + "1. Ændre et svar." + "\n" + "2. Få hjælp til et spørgsmål." + "\n" + "3. Se alle dine svar.""\n" + "4. Se all RASA funktioner.")
+        dispatcher.utter_message(text="Jeg kan hjælpe dig med følgende: " + "\n" + "- Ændre et svar." + "\n" + "- Få hjælp til et spørgsmål." + "\n" + "- Se alle dine svar.""\n" + "- Se all RASA funktioner.")
 
         return []
