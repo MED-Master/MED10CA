@@ -34,10 +34,14 @@ df = pd.read_csv("manuscript.csv", header=None)
 df.drop(0, axis=1, inplace=True)
 df.drop(0, axis=0, inplace=True)
 
-global condition
-# 1 == reflective question else == example
-condition = 2
 
+class ConditionController:
+    # 1 == reflective question else == example
+    conditionAB = 1 #AB
+    conditionBA = 2 #BA
+
+    startCondition = conditionAB
+    endCondition = conditionBA
 
 answers = []
 
@@ -116,6 +120,7 @@ SSQOLAnswerOptionsEnig = [
 
 class ValidationOfAnswer(Action):
     currentQuestionNumber = 1
+    manipulationCondition = ConditionController.startCondition
     def name(self) -> Text:
         return "ValidationOfAnswer"
 
@@ -156,17 +161,18 @@ class ValidationOfAnswer(Action):
         q_answer = next(tracker.get_latest_entity_values('Q_answer'), None)
         q_number = next(tracker.get_latest_entity_values('question_num'), None)
         ValidationOfAnswer.currentQuestionNumber = int(q_number)  # what question the user is answering currently
-        entityQNumber = int(q_number)
-        q_number = int(q_number) - 1
+        entityQNumber = int(q_number) # this one is used to get the correct question from the dataframe that starts at 1 instead of 0
+        q_number = int(q_number) - 1 # used to call the array that starts at 0 instead of 1
         answers.append(q_answer)
         print("q_answer: " + q_answer)
+        if entityQNumber > 24: self.manipulationCondition = ConditionController.endCondition
         # print(df.at[49, 7])
         if q_number < 26:  # svær
             answerCaseBesvær = self.answerToInt(q_answer, "besvær")
             print("answerCaseBesvær" + str(answerCaseBesvær))
             print("q_number" + str(q_number))
             dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ". " + "\n" + df.at[entityQNumber, answerCaseBesvær])
-            addManipulation = self.giveHelpPer5thQuestion(entityQNumber, condition)
+            addManipulation = self.giveHelpPer5thQuestion(entityQNumber, self.manipulationCondition)
             if addManipulation != "":
                 print("addManipulation: " + addManipulation)
                 dispatcher.utter_message(text=addManipulation)
@@ -260,9 +266,9 @@ class GiveHelp(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        help_type = condition
+        help_type = ConditionController.startCondition
         current = ValidationOfAnswer.currentQuestionNumber
-        print(current)
+        if current > 24: help_type = ConditionController.endCondition
 
         if help_type is 1:  # reflective question
             dispatcher.utter_message(text="Her er noget hjælp: " + df.at[current, 6])
