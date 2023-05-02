@@ -25,3 +25,8 @@
 ## In VSCode
 - npm start
 - r - in terminal to refresh app
+
+## For making this shit work
+- Replace all localhost strings in RASA with local internet IP.
+  - In endpoints.yml, credentials.yml and twice in Data Collection.py
+- Replace IP location in fetch in react

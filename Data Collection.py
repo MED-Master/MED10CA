@@ -90,7 +90,7 @@ def RASAthunction(message: str) -> [str]:
     Sends a message to RASA and returns the RASA response
     """
     rasa_msg = []
-    r = requests.post('http://localhost:5005/webhooks/rest/webhook', json={"message": message})
+    r = requests.post('http://172.20.10.5:5005/webhooks/rest/webhook', json={"message": message})
 
     for res in r.json():
         rasa_msg.append(res)
@@ -104,4 +104,4 @@ if __name__ == '__main__':
     c.execute('''CREATE TABLE IF NOT EXISTS logs
                      (id INTEGER PRIMARY KEY AUTOINCREMENT , user_id INT NOT NULL, timestamp TEXT NOT NULL, message TEXT NOT NULL, question INTEGER, answer INTEGER)''')
     conn.close()
-    app.run(host='localhost', port=6969)
+    app.run(host='172.20.10.5', port=6969)
