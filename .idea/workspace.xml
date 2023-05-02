@@ -5,15 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ed2e0a8-a0e8-4097-bb66-8152ae8d2d8f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/identifier.sqlite" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logTwo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MED_10CA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MED_10CA.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmp8lyz6xwg/featurizer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmp8lyz6xwg/memorized_turns.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/featurizer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/unexpected_intent_policy.data_example.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/unexpected_intent_policy.entity_tag_specs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/unexpected_intent_policy.fake_features.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/unexpected_intent_policy.label_data.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/unexpected_intent_policy.label_quantiles.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/unexpected_intent_policy.meta.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/unexpected_intent_policy.priority.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/unexpected_intent_policy.tf_model.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpg3dhdxbi/unexpected_intent_policy.tf_model.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpgm_rluug/oov_words.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpgm_rluug/vocabularies.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpk8glwo07/featurizer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpk8glwo07/rule_only_data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpk8glwo07/rule_policy.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmppiibp8fs/oov_words.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmppiibp8fs/vocabularies.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmppsjtkxd8/patterns.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmptizzx1ud/DIETClassifier.data_example.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmptizzx1ud/DIETClassifier.entity_tag_specs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmptizzx1ud/DIETClassifier.index_label_id_mapping.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmptizzx1ud/DIETClassifier.label_data.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmptizzx1ud/DIETClassifier.sparse_feature_sizes.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmptizzx1ud/DIETClassifier.tf_model.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmptizzx1ud/DIETClassifier.tf_model.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmptizzx1ud/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpxhxlc5ep/feature_to_idx_dict.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpz5mm_ipv/checkpoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpz5mm_ipv/featurizer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpz5mm_ipv/ted_policy.data_example.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpz5mm_ipv/ted_policy.entity_tag_specs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpz5mm_ipv/ted_policy.fake_features.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpz5mm_ipv/ted_policy.label_data.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpz5mm_ipv/ted_policy.meta.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpz5mm_ipv/ted_policy.priority.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpz5mm_ipv/ted_policy.tf_model.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.rasa/cache/tmpz5mm_ipv/ted_policy.tf_model.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logTwoNew.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/20230502-134051-right-jug.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a60baac5-0899-4884-bf92-ecbe36eafd51.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a60baac5-0899-4884-bf92-ecbe36eafd51.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e59576af-f3c1-49d7-b03b-c7e95b7e773a.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.rasa/cache/cache.db" beforeDir="false" afterPath="$PROJECT_DIR$/.rasa/cache/cache.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data Collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data Collection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logTwo.db" beforeDir="false" afterPath="$PROJECT_DIR$/logTwo.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logTwo" beforeDir="false" afterPath="$PROJECT_DIR$/logTwo1.db.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logTwo.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manuscript.csv" beforeDir="false" afterPath="$PROJECT_DIR$/manuscript.csv" afterDir="false" />
     </list>
     <list id="922a1971-0e60-4c04-972d-119e692178bf" name="Changes by veronikanemcova" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +71,17 @@
       <list>
         <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -61,23 +117,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.Data Collection (1)">
+    <configuration name="logTwo1.db" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/logTwo1.db" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
     <configuration name="logTwo.db" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/logTwo.db" />
       <script-mode>FILE</script-mode>
@@ -127,28 +191,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\Steff\AppData\Local\Programs\Python\Python38\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="Flask (Data Collection.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
       <module name="MED_10CA" />
       <option name="target" value="$PROJECT_DIR$/Data Collection.py" />
@@ -156,7 +198,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -208,21 +250,21 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Database Script.logTwo1.db" />
       <item itemvalue="Database Script.logTwo.db" />
       <item itemvalue="Flask server.MED_10CA" />
       <item itemvalue="Flask server.MED10CA" />
       <item itemvalue="Flask server.Flask (Data Collection.py)" />
       <item itemvalue="Python.Data Collection" />
       <item itemvalue="Python.Data Collection (1)" />
-      <item itemvalue="Python.Test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Data Collection (1)" />
         <item itemvalue="Flask server.Flask (Data Collection.py)" />
         <item itemvalue="Python.Data Collection" />
+        <item itemvalue="Database Script.logTwo1.db" />
         <item itemvalue="Database Script.logTwo.db" />
-        <item itemvalue="Python.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -257,7 +299,8 @@
       <workItem from="1682591951078" duration="9281000" />
       <workItem from="1683017092083" duration="706000" />
       <workItem from="1683017808740" duration="1577000" />
-      <workItem from="1683019391901" duration="1941000" />
+      <workItem from="1683019391901" duration="4845000" />
+      <workItem from="1683024474475" duration="5887000" />
     </task>
     <servers />
   </component>
@@ -280,7 +323,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MED_10CA$MED_10CA.coverage" NAME="MED_10CA Coverage Results" MODIFIED="1683018214441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/MED_10CA$Data_Collection__1_.coverage" NAME="Data Collection (1) Coverage Results" MODIFIED="1683021321321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MED_10CA$Flask__Data_Collection_py_.coverage" NAME="Flask (Data Collection.py) Coverage Results" MODIFIED="1683021170591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/MED_10CA$Data_Collection__1_.coverage" NAME="Data Collection (1) Coverage Results" MODIFIED="1683035973558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MED_10CA$Flask__Data_Collection_py_.coverage" NAME="Flask (Data Collection.py) Coverage Results" MODIFIED="1683024615167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

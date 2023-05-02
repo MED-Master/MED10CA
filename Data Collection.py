@@ -6,9 +6,9 @@ from pprint import pprint
 import re
 app = Flask(__name__)
 
-USER_INDEX = 2
+USER_INDEX = 0
 
-DATABASE_NAME = 'logTwo.db'
+DATABASE_NAME = 'logTwo1.db.db'
 SSQOLAnswerOptions1 = [
     "Kunne slet ikke",
     "Meget besvær",
@@ -37,15 +37,20 @@ def get_text_or_image(el):
     return ""
 
 def is_an_answer(message):
-    pattern = r'Q[0-9]+(\s\w+)'
+    pattern = 'Spørgsmål \d+ - \w+'
     return not not re.search(pattern, message)
 
 def get_question_answer(message):
-    question, answer = message.split(" ", 1)
+    question, answer = message.split(" - ", 1)
+    trash, question = question.split(" ", 1)
 
-    scale1 = SSQOLAnswerOptions1.index(answer)
-    if scale1 is not None:
-        return question, scale1 + 1
+    #print('question' + str(question))
+
+    if int(question)<27:
+        scale1 = SSQOLAnswerOptions1.index(answer)
+        #print(scale1)
+        if scale1 is not None:
+            return question, scale1 + 1
 
     scale2 = SSQOLAnswerOptions2.index(answer)
     if scale2 is not None:

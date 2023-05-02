@@ -30,3 +30,10 @@
 - Replace all localhost strings in RASA with local internet IP.
   - In endpoints.yml, credentials.yml and twice in Data Collection.py
 - Replace IP location in fetch in react
+
+
+# Testing
+## For every new partcipant
+- update user index in data collection and restart server
+- update condition class in action file and restart rasa sdk
+- reload app
