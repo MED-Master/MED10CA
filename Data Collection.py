@@ -103,5 +103,6 @@ if __name__ == '__main__':
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS logs
                      (id INTEGER PRIMARY KEY AUTOINCREMENT , user_id INT NOT NULL, timestamp TEXT NOT NULL, message TEXT NOT NULL, question INTEGER, answer INTEGER)''')
+    print(DATABASE_NAME)
     conn.close()
     app.run(host='172.20.10.5', port=6969)
