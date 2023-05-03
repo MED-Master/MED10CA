@@ -137,3 +137,13 @@ nlu:
     - liste af muligheder
     - muligheder
     - RASA muligheder
+
+- intent: question_form
+  examples: |
+    - hvordan skal jeg svare på spørgsmålene
+    - svare på spørgsmål
+    - form for svar
+    - hvordan skal jeg forholde mig til det
+    - hvordan skal jeg forholde mig til spørgsmålene
+    - svar struktur
+    - hvordan skal jeg svare

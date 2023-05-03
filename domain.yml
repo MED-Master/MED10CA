@@ -16,6 +16,7 @@ intents:
 - bot_challenge
 - see_answer_overview
 - see_rasa_functions
+- question_form
 entities:
 - Q_answer
 - get_number
@@ -37,6 +38,10 @@ responses:
   - text: Undskyld. Jeg kan ikke forstå, hvad du prøver at sige. Kan du venligst omformulere dit spørgsmål? :)
   utter_want_to_see_answers:
   - text: Vil du gerne se dine svar?
+  utter_question_form1:
+  - text: Du bør svare baseret på det gennemsnitlige besvær, du har haft i løbet af den seneste uge. Hvis der var en dag, hvor besværet var ekstremt og ikke hvad du normalt ville opleve, skal du se bort fra denne enkeltstående dag.
+  utter_question_form2:
+  - text: Du bør svare baseret på din generelle tilstand. Det er ligegyldigt, om slagtilfælde IKKE er årsagen til et bestemt problem, for eksempel kan du også have problemer med gigt, hvilket gør det sværere for dig at gå.
 actions:
 - AskForNewAnswer
 - ChangeAnswer

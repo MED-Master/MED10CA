@@ -148,6 +148,7 @@ class ValidationOfAnswer(Action):
     def giveHelpPer5thQuestion(self, q_number, setCondition):
         if ((q_number + 1) % 5 == 0 or q_number == 23 or q_number == 48) and q_number != 24 and q_number != 49:
             help_type = setCondition
+            print("help " + str(help_type))
             if help_type is 1:  # reflective question
                 return "Her er noget hjælp til det næste spørgsmål: " + df.at[(q_number+1), 6]
             else:  # example
@@ -166,18 +167,19 @@ class ValidationOfAnswer(Action):
         answers.append(q_answer)
         if entityQNumber > 24: self.manipulationCondition = ConditionController.endCondition
         # print(df.at[49, 7])
-        if q_number < 26:  # svær
+        if q_number < 27:  # svær
             answerCaseBesvær = self.answerToInt(q_answer, "besvær")
             dispatcher.utter_message(text="Du har svaret at du har: " + q_answer + ". " + "\n" + df.at[entityQNumber, answerCaseBesvær])
         else: #enig
             answerCaseEnig = self.answerToInt(q_answer, "enig")
             dispatcher.utter_message(text="Du har svaret at du er: " + q_answer + ". " + "\n" + df.at[entityQNumber, answerCaseEnig])
         addManipulation = self.giveHelpPer5thQuestion(entityQNumber, self.manipulationCondition)
+        print('manipulationCondition' + str(self.manipulationCondition))
         if addManipulation != "":
             dispatcher.utter_message(text=addManipulation)
 
         if entityQNumber > 48:
-            dispatcher.utter_message(text="Tillykke du har gennemført spørgeskemaet. Tak for din time!" + "\n" + "Du kan nu se dine svar ved at skrive på 'Se alle svar'")
+            dispatcher.utter_message(text="Tillykke du har gennemført spørgeskemaet. Tak for din tid!" + "\n" + "Du kan nu se dine svar ved at skrive på 'Se alle svar'")
 
         return []
 
@@ -261,7 +263,7 @@ class GiveHelp(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         help_type = ConditionController.startCondition
-        current = ValidationOfAnswer.currentQuestionNumber
+        current = ValidationOfAnswer.currentQuestionNumber + 1
         if current > 24: help_type = ConditionController.endCondition
 
         if help_type is 1:  # reflective question
@@ -305,6 +307,11 @@ class ListOfFunctions(Action):
              tracker: Tracker,
              domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         #change answer, help, answer overview
-        dispatcher.utter_message(text="Jeg kan hjælpe dig med følgende: " + "\n" + "- Ændre et svar." + "\n" + "- Få hjælp til et spørgsmål." + "\n" + "- Se alle dine svar.""\n" + "- Se all RASA funktioner.")
+        dispatcher.utter_message(text="Jeg kan hjælpe dig med følgende: " + "\n" +
+                                      '- Ændre et svar: "ændre svar".' + "\n" +
+                                      '- Få hjælp til et spørgsmål: "hjælp".' + "\n" +
+                                      '- Se alle dine svar: "se svar".' +"\n" +
+                                      '- Hvordan skal forholde mig til spørgsmålene: "form for svar".' + "\n" +
+                                      '- Se all RASA funktioner: "evner".' + "\n" )
 
         return []

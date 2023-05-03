@@ -15,6 +15,13 @@ stories:
     - intent: ask_for_help
     - action: GiveHelp
 
+
+- story: form of answer
+  steps:
+    - intent: question_form
+    - action: utter_question_form1
+    - action: utter_question_form2
+
 - story: change the answer
   steps:
     - intent: change_answer_pls
