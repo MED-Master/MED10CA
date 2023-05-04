@@ -6,7 +6,7 @@ from pprint import pprint
 import re
 app = Flask(__name__)
 
-USER_INDEX = 0
+USER_INDEX = 3
 
 DATABASE_NAME = 'logTwo1.db.db'
 SSQOLAnswerOptions1 = [
@@ -46,7 +46,7 @@ def get_question_answer(message):
 
     #print('question' + str(question))
 
-    if int(question)<27:
+    if int(question) < 28:
         scale1 = SSQOLAnswerOptions1.index(answer)
         #print(scale1)
         if scale1 is not None:

@@ -40,8 +40,8 @@ class ConditionController:
     conditionAB = 1 #AB
     conditionBA = 2 #BA
 
-    startCondition = conditionAB
-    endCondition = conditionBA
+    startCondition = conditionBA
+    endCondition = conditionAB
 
 answers = []
 

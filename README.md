@@ -37,3 +37,8 @@
 - update user index in data collection and restart server
 - update condition class in action file and restart rasa sdk
 - reload app
+
+
+
+# Delete database
+- drop * from logs - in console
