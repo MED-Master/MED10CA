@@ -132,7 +132,9 @@ class ValidationOfAnswer(Action):
                 "Meget besvær": 2,
                 "En del besvær": 3,
                 "Lidt besvær": 4,
-                "Intet besvær": 5 }
+                "Intet besvær": 5 
+                # key : value
+                }
         elif type == "enig":
             cases = {
                 "Helt enig": 1,
